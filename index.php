@@ -6,13 +6,18 @@
 </head>
 <body>
     <?php
+        /* Include the student class  */
         include('student.php');
-
+        
+        /* Create student array */
         $students = array();
 
-        foreach ($students as $student)
+        foreach ($students as $student) {
             echo $student->toString();
-
+        }
+        
+        /* Adding the first student */
+        
         $first = new Student();
         $first->surname = "Doe";
         $first->first_name = "John";
@@ -22,6 +27,8 @@
         $first->add_grade(75);
         $first->add_grade(55);
         $students['j123'] = $first;
+
+        /* Adding the second  student */
 
         $second = new Student();
         $second->surname = "Einstein";
@@ -33,8 +40,26 @@
         $second->add_grade(80);
         $second->add_grade(50);
         $students['a456'] = $second;
+        
+        /* Adding myself */
 
+        $third = new Student();
+        $third->surname = "Brar";
+        $third->first_name = "Neil";
+        $third->add_email('home', 'harneilbrar@gmail.com');
+        $third->add_email('work1', 'hbrar21@my.bcit.ca');
+        $third->add_grade(91);
+        $third->add_grade(83);
+        $third->add_grade(66);
+        $students['a567'] = $third;
+        
+        /* Sort the students in the array */
         ksort($students);
+        
+        /* Print out the content of the array */
+        foreach ($students as $student) {
+            echo $student->toString();
+        }
 
     ?>
 </body>
